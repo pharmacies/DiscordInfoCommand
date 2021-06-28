@@ -1,4 +1,4 @@
-# DiscordInfoCommand
+#Discord Bot Info Command
 Info Command
 
 
