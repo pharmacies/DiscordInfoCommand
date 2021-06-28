@@ -1,5 +1,8 @@
 # Discord Bot Info Command
 Simple discord.py info command!
+![image](https://user-images.githubusercontent.com/86589008/123597940-f7bdc080-d7c1-11eb-9158-53e3e0432967.png)
+
+
 
 
 
