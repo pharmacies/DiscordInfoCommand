@@ -4,14 +4,13 @@ from discord.ext import commands
 
 picture = "https://cdn.discordapp.com/attachments/751919923260817502/858958993102733312/agarz.webp"
 
+
 class Info(commands.Cog):
 
     def __init__(self, client):
         self.client = client
-        
-        
-        
-    @commands.command(name = 'Info', help ='Display info on a user!', aliases=["whois"])
+
+    @commands.command(name='Info', help='Display info on a user!', aliases=["whois"])
     async def info(self, ctx, member: discord.Member = None):
         if member is None:
             pfp = ctx.author.avatar_url
@@ -67,10 +66,13 @@ class Info(commands.Cog):
             CreationDate = ctx.author.created_at.strftime(date_format)
             JoinDate = ctx.author.joined_at.strftime(date_format)
 
-            embed = discord.Embed(description=f"{ctx.author}'s profile", timestamp=dt.datetime.utcnow(),color=0x8c9eff)
-            embed.add_field(name="** **", inline=False, value=(f"** ID: ** {UserID}\n ** Profile: **{UserPing}\n ** Nickname: **{Nickname}\n ** Avatar: **[Link]({pfp})"))
-            embed.add_field(name="** **", inline=False, value=( f"** Registered: ** {Registered_time} ({CreationDate})\n ** Joined: **{Joined_time} ({JoinDate})\n **Positon: **{pos}"))
-            embed.add_field(name="** **", inline=False, value=(f"** Admin: ** {Admin}\n ** Status: **{Status}\n ** Playing or Custom Status: **{CustomStatus}\n"))
+            embed = discord.Embed(description=f"{ctx.author}'s profile", timestamp=dt.datetime.utcnow(), color=0x8c9eff)
+            embed.add_field(name="** **", inline=False, value=(
+                f"** ID: ** {UserID}\n ** Profile: **{UserPing}\n ** Nickname: **{Nickname}\n ** Avatar: **[Link]({pfp})"))
+            embed.add_field(name="** **", inline=False, value=(
+                f"** Registered: ** {Registered_time} ({CreationDate})\n ** Joined: **{Joined_time} ({JoinDate})\n **Positon: **{pos}"))
+            embed.add_field(name="** **", inline=False, value=(
+                f"** Admin: ** {Admin}\n ** Status: **{Status}\n ** Playing or Custom Status: **{CustomStatus}\n"))
             embed.set_thumbnail(url=pfp)
             embed.set_footer(text=('Powered by Agarz'), icon_url=(picture))
             await ctx.send(embed=embed)
@@ -129,16 +131,16 @@ class Info(commands.Cog):
             JoinDate = member.joined_at.strftime(date_format)
 
             embed = discord.Embed(description=f"{member}'s profile", timestamp=dt.datetime.utcnow(), color=0x8c9eff)
-            embed.add_field(name="** **", inline=False, value=(f"** ID: ** {UserID}\n ** Profile: **{UserPing}\n ** Nickname: **{Nickname}\n ** Avatar: **[Link]({pfp})"))
-            embed.add_field(name="** **", inline=False, value=(f"** Registered: ** {Registered_time} ({CreationDate})\n ** Joined: **{Joined_time} ({JoinDate})\n **Positon: **{pos}"))
-            embed.add_field(name="** **", inline=False, value=(f"** Admin: ** {Admin}\n ** Status: **{Status}\n ** Playing or Custom Status: **{CustomStatus}\n"))
+            embed.add_field(name="** **", inline=False, value=(
+                f"** ID: ** {UserID}\n ** Profile: **{UserPing}\n ** Nickname: **{Nickname}\n ** Avatar: **[Link]({pfp})"))
+            embed.add_field(name="** **", inline=False, value=(
+                f"** Registered: ** {Registered_time} ({CreationDate})\n ** Joined: **{Joined_time} ({JoinDate})\n **Positon: **{pos}"))
+            embed.add_field(name="** **", inline=False, value=(
+                f"** Admin: ** {Admin}\n ** Status: **{Status}\n ** Playing or Custom Status: **{CustomStatus}\n"))
             embed.set_thumbnail(url=pfp)
             embed.set_footer(text=('Powered by Agarz'), icon_url=(picture))
             await ctx.send(embed=embed)
-            
 
 
 def setup(client):
     client.add_cog(Info(client))
-
-        
