@@ -14,6 +14,7 @@ class Info(commands.Cog):
     async def info(self, ctx, user: discord.Member = None):
         member = user or ctx.author
 
+        Admin = "Yes" if member.guild_permissions.administrator is True else "No"
         pfp = member.avatar_url
         UserID = member.id
         UserPing = member.mention
@@ -37,10 +38,7 @@ class Info(commands.Cog):
         else:
             Status = ("Do Not Disturb")
 
-        if member.guild_permissions.administrator is True:
-            Admin = ("Yes")
-        else:
-            Admin = ("No")
+
 
         duration = dt.datetime.now() - member.created_at
         hours, remainder = divmod(int(duration.total_seconds()), 3600)
